@@ -15,6 +15,7 @@ import {
   FormEditDataPegawai,
   FormAddDataPotongan,
   FormEditDataPotongan,
+  FormAddDataOvertime,
   PrintPdfLaporanGaji,
   DetailDataGaji,
   PrintPdfSlipGaji,
@@ -32,7 +33,8 @@ import {
   UbahPasswordAdmin,
   DataGajiPegawai,
   UbahPasswordPegawai,
-  DataPotongan
+  DataPotongan,
+  DataOvertime
 } from '../../pages'
 
 const AppRoutes = () => {
@@ -95,6 +97,14 @@ const AppRoutes = () => {
       <Route
         path='/data-potongan/form-data-potongan/edit/:id'
         element={<FormEditDataPotongan />} />
+      <Route
+        path='/data-overtime'
+        element={<DataOvertime />}
+      />
+      <Route
+        path='/data-overtime/add'
+        element={<FormAddDataOvertime />}
+      />
       <Route
         path='/data-gaji'
         element={<DataGaji />}

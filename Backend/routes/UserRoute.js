@@ -59,6 +59,11 @@ import {
 
 import { LogOut, changePassword } from '../controllers/Auth.js';
 import {
+    getOvertime,
+    createOvertime,
+    deleteOvertime
+} from '../controllers/OvertimeController.js';
+import {
     dashboardPegawai,
     viewDataGajiSinglePegawaiByMonth,
     viewDataGajiSinglePegawaiByYear
@@ -98,6 +103,10 @@ router.get('/data_potongan/:id', adminOnly, verifyUser, viewDataPotonganByID);
 router.post('/data_potongan', adminOnly, verifyUser, createDataPotonganGaji);
 router.patch('/data_potongan/update/:id', adminOnly, verifyUser, updateDataPotongan);
 router.delete('/data_potongan/:id', adminOnly, verifyUser, deleteDataPotongan);
+// Data Overtime
+router.get('/data_overtime', verifyUser, adminOnly, getOvertime);
+router.post('/data_overtime', verifyUser, adminOnly, createOvertime);
+router.delete('/data_overtime/:id', verifyUser, adminOnly, deleteOvertime);
 // Data Gaji
 router.get('/data_gaji_pegawai', viewDataGajiPegawai);
 router.get('/data_gaji/name/:name', verifyUser, viewDataGajiByName);

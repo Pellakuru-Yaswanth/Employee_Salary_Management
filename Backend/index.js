@@ -22,6 +22,7 @@ import argon2 from 'argon2';
 
 import DataJabatan from './models/DataJabatanModel.js';
 import PotonganGaji from './models/PotonganGajiModel.js';
+import DataOvertime from './models/DataOvertimeModel.js';
 
 (async() => {
     await db.sync();
