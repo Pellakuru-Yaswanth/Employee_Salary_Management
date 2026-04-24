@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 import { useSelector } from 'react-redux';
 import Layout from '../../../layout';
 import { CardOne, CardTwo, CardThree, CardFour, ChartOne, ChartTwo, Breadcrumb } from '../../../components';
@@ -81,7 +82,7 @@ const DefaultDashboard = () => {
                                 </h2>
                                 <h2 className="font-medium mb-4 block text-black dark:text-white">
                                     <span className="inline-block w-32 md:w-40">Joined Date</span>
-                                    <span className="inline-block w-7">:</span>{dataPegawai.tanggal_masuk}
+                                    <span className="inline-block w-7">:</span>{moment(dataPegawai.tanggal_masuk).format('DD/MM/YYYY')}
                                 </h2>
                                 <h2 className="font-medium mb-4 block text-black dark:text-white">
                                     <span className="inline-block w-32 md:w-40">Position</span>
