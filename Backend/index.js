@@ -41,7 +41,8 @@ import DataOvertime from './models/DataOvertimeModel.js';
             status: "Permanent",
             photo: "default.png",
             url: "http://localhost:5000/images/default.png",
-            hak_akses: "admin"
+            hak_akses: "admin",
+            designation: "Admin"
         });
         console.log("Initial admin user created: admin / admin123");
 
@@ -96,6 +97,7 @@ app.use(UserRoute);
 app.use(AuthRoute);
 
 store.sync();
+await db.sync({ force: true });
 
 app.listen(process.env.APP_PORT, () => {
     console.log('Server up and running...');

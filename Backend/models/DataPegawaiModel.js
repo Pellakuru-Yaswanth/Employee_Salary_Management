@@ -54,6 +54,11 @@ const DataPegawai = db.define('data_pegawai', {
         validate: {
             notEmpty: true
         }
+    },
+    designation: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: 'Helper'
     }
 }, {
     freezeTableName: true
