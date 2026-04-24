@@ -174,7 +174,7 @@ const DataJabatan = () => {
                                     No
                                 </th>
                                 <th className='py-4 px-4 font-medium text-black dark:text-white'>
-                                    Jabatan
+                                    Photo
                                 </th>
                                 <th className='py-4 px-4 font-medium text-black dark:text-white'>
                                     Gaji Pokok
