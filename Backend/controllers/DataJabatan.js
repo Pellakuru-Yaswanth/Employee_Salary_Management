@@ -57,6 +57,9 @@ export const createDataJabatan = async (req, res) => {
         id_jabatan, nama_jabatan, gaji_pokok, tj_transport, uang_makan
     } = req.body;
     try {
+        if (gaji_pokok <= 0 || tj_transport <= 0 || uang_makan <= 0) {
+            return res.status(400).json({ success: false, message: "Salary and allowance values must be positive numbers" });
+        }
         if (req.hak_akses === "admin") {
             await DataJabatan.create({
                 id_jabatan: id_jabatan,
@@ -94,6 +97,11 @@ export const updateDataJabatan = async (req, res) => {
         });
         if (!jabatan) return res.status(404).json({ msg: "Position data not found" });
         const { nama_jabatan, gaji_pokok, tj_transport, uang_makan } = req.body;
+        
+        if (gaji_pokok <= 0 || tj_transport <= 0 || uang_makan <= 0) {
+            return res.status(400).json({ msg: "Salary and allowance values must be positive numbers" });
+        }
+
         if (req.hak_akses === "admin") {
             await DataJabatan.update({
                 nama_jabatan, gaji_pokok, tj_transport, uang_makan

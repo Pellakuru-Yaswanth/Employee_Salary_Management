@@ -20,6 +20,15 @@ const FormEditDataPotongan = () => {
 
     const updateDataPotongan = async (e) => {
         e.preventDefault();
+        if (jmlPotongan <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Jumlah potongan harus berupa angka positif',
+                confirmButtonText: 'Ok',
+            });
+            return;
+        }
         try {
             const formData = new FormData();
             formData.append('potongan', potongan);
@@ -119,6 +128,7 @@ const FormEditDataPotongan = () => {
                                             value={jmlPotongan}
                                             onChange={(e) => setJmlPotongan(e.target.value)}
                                             required
+                                            min="1"
                                             placeholder='Masukkan jumlah potongan'
                                             className='w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                                         />

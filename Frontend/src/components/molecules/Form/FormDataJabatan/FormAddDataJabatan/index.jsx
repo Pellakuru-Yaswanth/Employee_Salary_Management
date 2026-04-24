@@ -27,6 +27,15 @@ const FormAddDataJabatan = () => {
 
     const submitDataJabatan = (e) => {
         e.preventDefault();
+        if (gajiPokok <= 0 || tjTransport <= 0 || uangMakan <= 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Gaji pokok, tunjangan, dan uang makan harus berupa angka positif',
+                confirmButtonText: 'Ok',
+            });
+            return;
+        }
         const newFormData = new FormData();
         newFormData.append('nama_jabatan', namaJabatan);
         newFormData.append('gaji_pokok', gajiPokok);
@@ -131,6 +140,7 @@ const FormAddDataJabatan = () => {
                                             value={gajiPokok}
                                             onChange={handleChange}
                                             required
+                                            min="1"
                                             placeholder='Masukkan gaji pokok'
                                             className='w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                                         />
@@ -149,6 +159,7 @@ const FormAddDataJabatan = () => {
                                             value={tjTransport}
                                             onChange={handleChange}
                                             required
+                                            min="1"
                                             placeholder='Masukkan tunjangan transport'
                                             className='w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                                         />
@@ -165,6 +176,7 @@ const FormAddDataJabatan = () => {
                                             value={uangMakan}
                                             onChange={handleChange}
                                             required
+                                            min="1"
                                             placeholder='Masukkan uang makan'
                                             className='w-full rounded border-[1.5px] border-stroke bg-transparent py-3 px-5 font-medium outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:focus:border-primary'
                                         />

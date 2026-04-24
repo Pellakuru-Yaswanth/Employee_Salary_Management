@@ -185,6 +185,9 @@ export const deleteDataKehadiran = async (req, res) => {
 // method untuk create data potongan gaji
 export const createDataPotonganGaji = async (req, res) => {
   const { id, potongan, jml_potongan } = req.body;
+  if (jml_potongan <= 0) {
+    return res.status(400).json({ msg: "Deduction amount must be a positive number" });
+  }
   try {
     const nama_potongan = await PotonganGaji.findOne({
       where: {
@@ -235,6 +238,10 @@ export const viewDataPotonganByID = async (req, res) => {
 
 // method untuk update Data Potongan
 export const updateDataPotongan = async (req, res) => {
+  const { jml_potongan } = req.body;
+  if (jml_potongan !== undefined && jml_potongan <= 0) {
+    return res.status(400).json({ msg: "Deduction amount must be a positive number" });
+  }
   try {
     await PotonganGaji.update(req.body, {
       where: {
