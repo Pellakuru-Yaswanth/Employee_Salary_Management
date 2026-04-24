@@ -7,7 +7,7 @@ import { FaRegEdit, FaPlus } from 'react-icons/fa';
 import { BsTrash3 } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
-import { deleteDataPegawai, getDataPegawai, getMe } from '../../../../config/redux/action';
+import { deleteDataPegawai, getDataPegawai, getMe, getDataJabatan } from '../../../../config/redux/action';
 import { BiSearch } from 'react-icons/bi';
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdOutlineKeyboardArrowDown } from 'react-icons/md';
 
@@ -21,6 +21,7 @@ const DataPegawai = () => {
     const navigate = useNavigate();
     const { isError, user } = useSelector((state) => state.auth);
     const { dataPegawai } = useSelector((state) => state.dataPegawai);
+    const { dataJabatan } = useSelector((state) => state.dataJabatan);
 
     const totalPages = Math.ceil(dataPegawai.length / ITEMS_PER_PAGE);
 
@@ -84,8 +85,9 @@ const DataPegawai = () => {
     };
 
     useEffect(() => {
-        dispatch(getDataPegawai(startIndex, endIndex));
-    }, [dispatch, startIndex, endIndex]);
+        dispatch(getDataPegawai());
+        dispatch(getDataJabatan());
+    }, [dispatch]);
 
     useEffect(() => {
         dispatch(getMe());
@@ -144,18 +146,67 @@ const DataPegawai = () => {
 
         return items;
     };
+    
+    const downloadCSV = () => {
+        if (!dataJabatan || dataJabatan.length === 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Data Not Ready',
+                text: 'Please wait a moment for salary data to load and try again.'
+            });
+            return;
+        }
+
+        const header = ["No", "Name", "Designation", "Department", "Salary"];
+        const rows = filteredDataPegawai.map((pegawai, index) => {
+            const jabatanInfo = dataJabatan.find(j => 
+                j.nama_jabatan.trim().toLowerCase() === pegawai.jabatan.trim().toLowerCase()
+            );
+            const totalSalary = jabatanInfo ? (jabatanInfo.gaji_pokok + jabatanInfo.tj_transport + jabatanInfo.uang_makan) : 0;
+            return [
+                index + 1,
+                pegawai.nama_pegawai,
+                pegawai.designation || "-",
+                pegawai.jabatan,
+                totalSalary
+            ];
+        });
+
+        const csvContent = [
+            header.join(","),
+            ...rows.map(r => r.join(","))
+        ].join("\n");
+
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", `Employee_List_${moment().format('DDMMYYYY')}.csv`);
+        link.style.visibility = 'hidden';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
     return (
         <Layout>
             <Breadcrumb pageName="Data Pegawai" />
-            <Link to="/data-pegawai/form-data-pegawai/add">
-                <ButtonOne>
-                    <span>Tambah Pegawai</span>
-                    <span>
-                        <FaPlus />
-                    </span>
-                </ButtonOne>
-            </Link>
+            <div className="flex gap-4">
+                <Link to="/data-pegawai/form-data-pegawai/add">
+                    <ButtonOne>
+                        <span>Tambah Pegawai</span>
+                        <span>
+                            <FaPlus />
+                        </span>
+                    </ButtonOne>
+                </Link>
+                <button
+                    onClick={downloadCSV}
+                    className="flex items-center gap-2 bg-success text-white py-2 px-4 rounded-lg hover:bg-opacity-90 transition shadow-md"
+                >
+                    <span>Download CSV</span>
+                </button>
+            </div>
             <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1 mt-6">
                 <div className="flex justify-between items-center mt-4 flex-col md:flex-row md:justify-between">
                     <div className="relative flex-1 md:mr-2 mb-4 md:mb-0">
