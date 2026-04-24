@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import moment from 'moment';
 import Layout from '../../../../layout';
 import { Link, useNavigate } from 'react-router-dom';
 import { Breadcrumb, ButtonOne } from '../../../../components';
@@ -226,7 +227,7 @@ const DataPegawai = () => {
                                             <p className="text-black dark:text-white">{data.jenis_kelamin}</p>
                                         </td>
                                         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
-                                            <p className="text-black dark:text-white">{data.tanggal_masuk}</p>
+                                            <p className="text-black dark:text-white">{moment(data.tanggal_masuk).format('DD/MM/YYYY')}</p>
                                         </td>
                                         <td className="border-b border-[#eee] py-5 px-4 dark:border-strokedark">
                                             <p className="text-black dark:text-white">{data.status}</p>

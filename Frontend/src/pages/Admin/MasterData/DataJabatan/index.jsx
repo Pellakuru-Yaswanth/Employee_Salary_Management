@@ -200,14 +200,14 @@ const DataJabatan = () => {
                                         <td className='border-b border-[#eee] py-5 px-4 dark:border-strokedark'>
                                             <p className='text-black dark:text-white'>{data.nama_jabatan}</p>
                                         </td>
-                                        <td className='border-b border-[#eee] py-5 px-4 dark:border-strokedark'>
-                                            <p className='text-black dark:text-white'>Rp. {data.gaji_pokok}</p>
+                                        <td className='border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark'>
+                                            <p className='text-black dark:text-white'>Rs. {data.gaji_pokok}</p>
                                         </td>
-                                        <td className='border-b border-[#eee] py-5 px-4 dark:border-strokedark'>
-                                            <p className='text-black dark:text-white'>Rp. {data.tj_transport}</p>
+                                        <td className='border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark'>
+                                            <p className='text-black dark:text-white'>Rs. {data.tj_transport}</p>
                                         </td>
-                                        <td className='border-b border-[#eee] py-5 px-4 dark:border-strokedark'>
-                                            <p className='text-black dark:text-white'>Rp. {data.uang_makan}</p>
+                                        <td className='border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark'>
+                                            <p className='text-black dark:text-white'>Rs. {data.uang_makan}</p>
                                         </td>
                                         <td className='border-b border-[#eee] py-5 px-4 dark:border-strokedark'>
                                             <div className='flex items-center space-x-3.5'>

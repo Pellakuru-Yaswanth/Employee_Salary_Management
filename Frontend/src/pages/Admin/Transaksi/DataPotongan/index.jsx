@@ -196,7 +196,7 @@ const DataPotongan = () => {
                                             <p className='text-black dark:text-white'>{data.potongan}</p>
                                         </td>
                                         <td className='border-b border-[#eee] py-5 px-4 dark:border-strokedark'>
-                                            <p className='text-black dark:text-white'>Rp. {data.jml_potongan}</p>
+                                            <p className='text-black dark:text-white'>Rs. {data.jml_potongan}</p>
                                         </td>
                                         <td className='border-b border-[#eee] py-5 px-4 dark:border-strokedark'>
                                             <div className='flex items-center space-x-3.5'>

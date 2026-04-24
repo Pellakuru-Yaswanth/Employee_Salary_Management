@@ -1,11 +1,12 @@
 import React, { useRef, useEffect, useState } from "react";
+import moment from "moment";
 import LogoPt from "../../../../assets/images/logo/logo-dark.svg";
 import LogoSipeka from "../../../../assets/images/logo/logo-sipeka.png";
 import { useReactToPrint } from "react-to-print";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
-    getMe, 
+    getMe,
     viewGajiSinglePegawaiByName,
 } from "../../../../config/redux/action";
 import { ButtonOne, ButtonTwo } from "../../../atoms";
@@ -155,7 +156,7 @@ const PrintPdfDataGajiPegawai = () => {
                                                 Gaji Pokok
                                             </td>
                                             <td className='border-b border-black border-t border-l border-r dark:border-white py-5 px-4 text-black dark:text-white'>
-                                                Rp. {data.gaji_pokok}
+                                                Rs. {data.gaji_pokok}
                                             </td>
                                         </tr>
                                         <tr className=' dark:border-white'>
@@ -166,7 +167,7 @@ const PrintPdfDataGajiPegawai = () => {
                                                 Tunjangan Transportasi
                                             </td>
                                             <td className='border-b border-black border-t border-l border-r dark:border-white py-5 px-4 text-black dark:text-white'>
-                                                Rp. {data.tj_transport}
+                                                Rs. {data.tj_transport}
                                             </td>
                                         </tr>
                                         <tr className=' dark:border-white'>
@@ -177,7 +178,7 @@ const PrintPdfDataGajiPegawai = () => {
                                                 Uang Makan
                                             </td>
                                             <td className='border-b border-black border-t border-l border-r dark:border-white py-5 px-4 text-black dark:text-white'>
-                                                Rp. {data.uang_makan}
+                                                Rs. {data.uang_makan}
                                             </td>
                                         </tr>
                                         <tr className=' dark:border-white'>
@@ -188,7 +189,7 @@ const PrintPdfDataGajiPegawai = () => {
                                                 Potongan
                                             </td>
                                             <td className='border-b border-black border-t border-l border-r dark:border-white py-5 px-4 text-black dark:text-white'>
-                                                Rp. {data.potongan}
+                                                Rs. {data.potongan}
                                             </td>
                                         </tr>
                                         <tr className=' dark:border-white'>
@@ -198,7 +199,7 @@ const PrintPdfDataGajiPegawai = () => {
                                                 Total Gaji :
                                             </td>
                                             <td className='font-medium border-b border-black border-t border-l border-r dark:border-white py-5 px-4 text-black dark:text-white'>
-                                                Rp. {data.total}
+                                                Rs. {data.total}
                                             </td>
                                         </tr>
                                     </tbody>
@@ -214,7 +215,7 @@ const PrintPdfDataGajiPegawai = () => {
                                     <span>{nama_pegawai}</span>
                                 </div>
                                 <div className="font-medium text-black dark:text-white">
-                                    <span className="text-right">Karawang, {`${new Date().getDate()} ${bulan} ${tahun}`}</span>
+                                    <span className="text-right">Karawang, {moment().format('DD/MM/YYYY')}</span>
                                     <br />
                                     <span>Finance</span>
                                     <br />
@@ -223,7 +224,7 @@ const PrintPdfDataGajiPegawai = () => {
                                 </div>
                             </div>
                             <div className="italic text-black dark:text-white mt-30">
-                                Dicetak Pada : {`${new Date().getDate()} ${bulan} ${tahun}`}
+                                Dicetak Pada : {moment().format('DD/MM/YYYY')}
                             </div>
                         </div>
                     );

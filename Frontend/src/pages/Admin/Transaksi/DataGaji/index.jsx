@@ -320,19 +320,19 @@ const DataGaji = () => {
                                             <p className='text-black dark:text-white'>{data.jabatan}</p>
                                         </td>
                                         <td className='border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark'>
-                                            <p className='text-black dark:text-white'>Rp. {data.gaji_pokok}</p>
+                                            <p className='text-black dark:text-white'>Rs. {data.gaji_pokok}</p>
                                         </td>
                                         <td className='border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark'>
-                                            <p className='text-black dark:text-white'>Rp. {data.tj_transport}</p>
+                                            <p className='text-black dark:text-white'>Rs. {data.tj_transport}</p>
                                         </td>
                                         <td className='border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark'>
-                                            <p className='text-black dark:text-white'>Rp. {data.uang_makan}</p>
+                                            <p className='text-black dark:text-white'>Rs. {data.uang_makan}</p>
                                         </td>
                                         <td className='border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark'>
-                                            <p className='text-black dark:text-white'>Rp. {data.potongan}</p>
+                                            <p className='text-black dark:text-white'>Rs. {data.potongan}</p>
                                         </td>
                                         <td className='border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark'>
-                                            <p className='text-black dark:text-white'>Rp. {data.total}</p>
+                                            <p className='text-black dark:text-white'>Rs. {data.total}</p>
                                         </td>
                                         <td className='border-b border-[#eee] py-5 px-4 text-center dark:border-strokedark'>
                                             <div className='flex items-center space-x-3.5'>

@@ -201,27 +201,27 @@ const DataGajiPegawai = () => {
                       </td>
                       <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                         <p className="text-black dark:text-white">
-                          Rp. {data.gaji_pokok}
+                          Rs. {data.gaji_pokok}
                         </p>
                       </td>
                       <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                         <p className="text-black dark:text-white">
-                          Rp. {data.tj_transport}
+                          Rs. {data.tj_transport}
                         </p>
                       </td>
                       <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                         <p className="text-black dark:text-white">
-                          Rp. {data.uang_makan}
+                          Rs. {data.uang_makan}
                         </p>
                       </td>
                       <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                         <p className="text-black dark:text-white">
-                          Rp. {data.potongan}
+                          Rs. {data.potongan}
                         </p>
                       </td>
                       <td className="border-b border-[#eee] px-4 py-5 dark:border-strokedark">
                         <p className="text-black dark:text-white">
-                          Rp. {data.total}
+                          Rs. {data.total}
                         </p>
                       </td>
                       <td className="border-b border-[#eee] px-4 py-5 text-center dark:border-strokedark">

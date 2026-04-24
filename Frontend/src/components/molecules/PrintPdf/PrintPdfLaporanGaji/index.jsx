@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import moment from "moment";
 import LogoPt from "../../../../assets/images/logo/logo-dark.svg";
 import LogoSipeka from "../../../../assets/images/logo/logo-sipeka.png";
 import { useReactToPrint } from "react-to-print";
@@ -168,19 +169,19 @@ const PrintPdfLaporanGaji = () => {
                       <p className="text-black dark:text-white">{data.jabatan_pegawai}</p>
                     </td>
                     <td className="border-b border-l border-black dark:border-white py-5 text-center">
-                      <p className="text-black dark:text-white">Rp. {data.gaji_pokok}</p>
+                      <p className="text-black dark:text-white">Rs. {data.gaji_pokok}</p>
                     </td>
                     <td className="border-b border-l border-black dark:border-white py-5 text-center">
-                      <p className="text-black dark:text-white">Rp. {data.tj_transport}</p>
+                      <p className="text-black dark:text-white">Rs. {data.tj_transport}</p>
                     </td>
                     <td className="border-b border-l border-black dark:border-white py-5 text-center">
-                      <p className="text-black dark:text-white">Rp. {data.uang_makan}</p>
+                      <p className="text-black dark:text-white">Rs. {data.uang_makan}</p>
                     </td>
                     <td className="border-b border-l border-black dark:border-white py-5 text-center">
-                      <p className="text-black dark:text-white">Rp. {data.potongan}</p>
+                      <p className="text-black dark:text-white">Rs. {data.potongan}</p>
                     </td>
                     <td className="border-b border-l border-r border-black dark:border-white py-5 text-center">
-                      <p className="text-black dark:text-white">Rp. {data.total_gaji}</p>
+                      <p className="text-black dark:text-white">Rs. {data.total_gaji}</p>
                     </td>
                   </tr>
                 );
@@ -190,7 +191,7 @@ const PrintPdfLaporanGaji = () => {
         </div>
         <div className="py-6">
           <div className="font-medium text-black text-right dark:text-white">
-            <span>Karawang, {`${new Date().getDate()} ${bulan} ${tahun}`}</span>
+            <span>Karawang, {moment().format('DD/MM/YYYY')}</span>
             <br />
             <span className="p-26">Finance</span>
             <br />
@@ -199,7 +200,7 @@ const PrintPdfLaporanGaji = () => {
           </div>
         </div>
         <div className="italic text-black dark:text-white mt-40">
-          Dicetak Pada : {`${new Date().getDate()} ${bulan} ${tahun}`}
+          Dicetak Pada : {moment().format('DD/MM/YYYY')}
         </div>
       </div>
     </>

@@ -126,7 +126,7 @@ const DetailDataGaji = () => {
                                     Gaji Pokok
                                 </td>
                                 <td className='border-b border-[#eee] dark:border-strokedark py-5 px-4 text-black dark:text-white'>
-                                    Rp. {data.gaji_pokok}
+                                    Rs. {data.gaji_pokok}
                                 </td>
                             </tr>
                             <tr className='bg-gray-50 dark:border-strokedark'>
@@ -137,7 +137,7 @@ const DetailDataGaji = () => {
                                     Tunjangan Transportasi
                                 </td>
                                 <td className='border-b border-[#eee] dark:border-strokedark py-5 px-4 text-black dark:text-white'>
-                                    Rp. {data.tj_transport}
+                                    Rs. {data.tj_transport}
                                 </td>
                             </tr>
                             <tr className='bg-gray-50 dark:border-strokedark'>
@@ -148,7 +148,7 @@ const DetailDataGaji = () => {
                                     Uang Makan
                                 </td>
                                 <td className='border-b border-[#eee] dark:border-strokedark py-5 px-4 text-black dark:text-white'>
-                                    Rp. {data.uang_makan}
+                                    Rs. {data.uang_makan}
                                 </td>
                             </tr>
                             <tr className='bg-gray-50 dark:border-strokedark'>
@@ -159,7 +159,7 @@ const DetailDataGaji = () => {
                                     Potongan
                                 </td>
                                 <td className='border-b border-[#eee] dark:border-strokedark py-5 px-4 text-black dark:text-white'>
-                                    Rp. {data.potongan}
+                                    Rs. {data.potongan}
                                 </td>
                             </tr>
                             <tr className='bg-gray-50 dark:border-strokedark'>
@@ -169,7 +169,7 @@ const DetailDataGaji = () => {
                                     Total Gaji :
                                 </td>
                                 <td className='font-medium border-b border-[#eee] dark:border-strokedark py-5 px-4 text-black dark:text-white'>
-                                    Rp. {data.total}
+                                    Rs. {data.total}
                                 </td>
                             </tr>
                         </tbody>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import moment from 'moment';
 import Layout from '../../../../layout';
 import { Link, useNavigate } from 'react-router-dom';
 import { Breadcrumb, ButtonOne } from '../../../../components';
@@ -110,7 +111,7 @@ const DataOvertime = () => {
                                     <td className='py-5 px-4'><p className='text-black dark:text-white'>{startIndex + index + 1}</p></td>
                                     <td className='py-5 px-4'><p className='text-black dark:text-white'>{data.nik}</p></td>
                                     <td className='py-5 px-4'><p className='text-black dark:text-white'>{data.nama_pegawai}</p></td>
-                                    <td className='py-5 px-4'><p className='text-black dark:text-white'>{data.tanggal}</p></td>
+                                    <td className='py-5 px-4'><p className='text-black dark:text-white'>{moment(data.tanggal).format('DD/MM/YYYY')}</p></td>
                                     <td className='py-5 px-4 text-center'><p className='text-black dark:text-white'>{data.jam_overtime}</p></td>
                                     <td className='py-5 px-4'><p className='text-black dark:text-white'>{data.keterangan}</p></td>
                                     <td className='py-5 px-4'>

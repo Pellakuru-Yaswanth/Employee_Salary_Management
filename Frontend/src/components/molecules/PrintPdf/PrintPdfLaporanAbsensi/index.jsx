@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import moment from "moment";
 import LogoPt from "../../../../assets/images/logo/logo-dark.svg";
 import LogoSipeka from "../../../../assets/images/logo/logo-sipeka.png";
 import { useReactToPrint } from "react-to-print";
@@ -176,7 +177,7 @@ const PrintPdfLaporanAbsensi = () => {
                 </div>
                 <div className="py-6">
                     <div className="font-medium text-black text-right dark:text-white">
-                        <span>Karawang, {`${new Date().getDate()} ${bulan} ${tahun}`}</span>
+                        <span>Karawang, {moment().format('DD/MM/YYYY')}</span>
                         <br />
                         <span className="p-26">Finance</span>
                         <br />
@@ -185,7 +186,7 @@ const PrintPdfLaporanAbsensi = () => {
                     </div>
                 </div>
                 <div className="italic text-black dark:text-white mt-70">
-                    Dicetak Pada : {`${new Date().getDate()} ${bulan} ${tahun}`}
+                    Dicetak Pada : {moment().format('DD/MM/YYYY')}
                 </div>
             </div>
         </>
